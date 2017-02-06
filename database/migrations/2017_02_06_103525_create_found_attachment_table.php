@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLostsTable extends Migration
+class CreateFoundAttachmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateLostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('losts', function (Blueprint $table) {
+        Schema::create('found_attachment', function (Blueprint $table) {
             $table->increments('id');
             
             $table->timestamps();
@@ -26,6 +26,6 @@ class CreateLostsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('losts');
+        Schema::drop('found_attachment');
     }
 }

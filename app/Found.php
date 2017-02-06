@@ -13,7 +13,11 @@ class Found extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
-    public function founds(){
+    public function replies(){
         return $this->hasMany('App\FoundReply','found_id','id');
+    }
+
+    public function attachments(){
+        return $this->hasMany('App\FoundAttachment','found_id','id');
     }
 }
