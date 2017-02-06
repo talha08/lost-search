@@ -14,7 +14,9 @@ class CreateFoundAttachmentTable extends Migration
     {
         Schema::create('found_attachment', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('image');
+            $table->integer('found_id')->unsigned()->index();
+            $table->foreign('found_id')->references('id')->on('founds')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

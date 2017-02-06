@@ -14,7 +14,9 @@ class CreateFoundsTable extends Migration
     {
         Schema::create('founds', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('is_lost');
+            $table->string('title');
+            $table->string('description');
             $table->timestamps();
         });
     }

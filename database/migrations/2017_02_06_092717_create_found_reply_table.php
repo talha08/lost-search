@@ -14,7 +14,11 @@ class CreateFoundReplyTable extends Migration
     {
         Schema::create('found_reply', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('found_id')->unsigned()->index();
+            $table->foreign('found_id')->references('id')->on('founds')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
