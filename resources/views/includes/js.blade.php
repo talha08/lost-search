@@ -1,17 +1,30 @@
 
 <!-- Mainly scripts -->
-{!! Html::script('js/jquery-2.1.1.js') !!}
-{!! Html::script('js/bootstrap.min.js') !!}
-{!! Html::script('js/plugins/metisMenu/jquery.metisMenu.js') !!}
-{!! Html::script('js/plugins/slimscroll/jquery.slimscroll.min.js') !!}
 
 
-<!-- Custom and plugin javascript -->
-{!! Html::script('js/inspinia.js') !!}
-{!! Html::script('js/plugins/pace/pace.min.js') !!}
+
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/plugins/jquery.js"></script>
+    <script src="assets/plugins/jquery.easing-1.3.pack.js"></script>
+    <!-- jQuery Bootstrap -->
+    <script src="assets/plugins/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+    <!-- Lightbox -->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Theme JS -->
+    <script src="assets/theme/js/theme.js"></script>
+
+    <!-- maps -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="assets/plugins/gmap3.min.js"></script>
+    <!-- maps single marker -->
+    <script src="assets/theme/js/map-detail.js"></script>
+    <script src="assets/js/script.js"></script>
+
+
 
 <!-- toastr -->
-{!! Html::script('js/plugins/toastr/toastr.min.js') !!}
+{!! Html::script('assets/toastr/toastr.min.js') !!}
 @include('includes.toastr')
 
 

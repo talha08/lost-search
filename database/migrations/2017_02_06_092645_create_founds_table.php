@@ -16,6 +16,9 @@ class CreateFoundsTable extends Migration
             $table->increments('id');
             $table->string('is_lost');
             $table->string('title');
+            $table->string('lost_place');
+            $table->string('lost_date');
+            $table->string('lost_time');
             $table->string('description');
             $table->timestamps();
         });

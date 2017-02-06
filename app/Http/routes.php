@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return Redirect::route('dashboard');
+	return view('index');
 });
 
 
