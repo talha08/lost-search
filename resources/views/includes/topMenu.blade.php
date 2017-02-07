@@ -1,13 +1,14 @@
 <!-- main navbar -->
-@if(Route::getCurrentRoute()->getPath() == '/')
-  <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
-@else
- <nav class="navbar fixed-nav-bar main-navbar hidden-sm hidden-xs">
-@endif
+{{--@if(Route::getCurrentRoute()->getPath() == '/')--}}
+  {{--<nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">--}}
+{{--@else--}}
+ <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
+{{--@endif--}}
   <div class="container">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav">
+        {{--<li class=""> <a href="#"><img src="http://static.tumblr.com/j8lh0bq/ymhkzth5d/logo.png" height="40px"  alt=""></a></li>--}}
         <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
         <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
         <li  class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
@@ -91,3 +92,4 @@
   </nav>
 </div>
 <!-- mobile navbar -->
+

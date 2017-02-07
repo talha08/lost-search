@@ -1,96 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfancyIT | Sign Up </title>
+@extends('layouts.default')
+@section('content')
 
-    {!! Html::style('css/bootstrap.min.css') !!}
-    {!! Html::style('font-awesome/css/font-awesome.css') !!}
-    {!! Html::style('css/animate.css') !!}
-    {!! Html::style('css/style.css') !!}
-    {!! Html::style('css/plugins/bootstrapSocial/bootstrap-social.css') !!}
-</head>
-<body class="gray-bg">
-<div class="loginColumns animated fadeInDown">
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="font-bold">Welcome to InfancyIT</h2>
-            <p>
-                Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-            </p>
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-            </p>
-            <p>
-                When an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-            <p>
-                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
-            </p>
+
+        <!-- body-content -->
+<div class="body-content clearfix" >
+
+    <div class="block-section bg-color4">
+        <div class="container">
+            <div class="panel panel-md">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- buttons top -->
+                            <p><a href="#" class="btn btn-primary btn-theme btn-block"><i class="fa fa-facebook pull-left bordered-right"></i> Register with Facebook</a></p>
+                            <p><a href="#" class="btn btn-danger btn-theme btn-block"><i class="fa fa-google-plus pull-left bordered-right"></i> Register with Google</a></p>
+                            <!-- end buttons top -->
+
+                            <div class="white-space-10"></div>
+                            <p class="text-center"><span class="span-line">OR</span></p>
+
+                            <!-- form login -->
+                            <form>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Your Password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Re-type Password</label>
+                                    <input type="password" class="form-control" placeholder="Re-type Your Password">
+                                </div>
+                                <div class="white-space-10"></div>
+                                <div class="form-group no-margin">
+                                    <button class="btn btn-theme btn-lg btn-t-primary btn-block">Register</button>
+                                </div>
+                            </form><!-- form login -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="white-space-20"></div>
+            <div class="text-center color-white">By creating an account, you agree to JobPlanet <br/><a href="#" class="link-white"><strong>Terms of Service</strong></a> and consent to our <a href="#" class="link-white"><strong>Privacy Policy</strong></a>.</div>
         </div>
-        <div class="col-md-6">
-            <div class="ibox-content">
-                <div class="panel-heading">
-                    <h2 class="text-center m-t-10"><strong>Sign Up</strong> </h2>
+    </div>
+
+    <div class="block-section bg-color2">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <i class="fa fa-question fa-5x box-icon"></i>
+                    <h2 class=""> Why create an account?</h2>
+                    <hr/>
+                    <p><i class="fa fa-check"></i> Manage, create and delete your job alerts</p>
+                    <p><i class="fa fa-check"></i> Access your saved jobs and notes from any computer</p>
+
                 </div>
-                @include('includes.alert')
-                {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
-
-                <div class="form-group ">
-                        {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
-                </div>
-
-                <div class="form-group ">
-                        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
-                </div>
-
-                <div class="form-group ">
-                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
-                </div>
-
-                <div class="form-group ">
-                        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
-                </div>
-
-                {!! Form::submit('Log in', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
-
-
-                <div class="ibox-content">
-                    <h4 class="text-center"><b> OR</b></h4>
-                    <a href="{!! route('login/fb') !!}" class="btn btn-block btn-social btn-facebook" >
-                        <span class="fa fa-facebook"></span> Sign up with Facebook
-                    </a>
-
-                    <a href="{!! route('login/gp') !!}" class="btn btn-block btn-social btn-google" >
-                        <span class="fa fa-google"></span> Sign up with Google
-                    </a>
-                </div>
-
-
-
-
-                <p class="text-muted text-center">
-                    <small>Already have an account?</small>
-                </p>
-                <a class="btn btn-sm btn-white btn-block" href="{!! route('login') !!}">Login</a><br><br>
-                {!! Form::close() !!}
             </div>
         </div>
     </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-6">
-            Copyright &copy; InfancyIT
-        </div>
-        <div class="col-md-6 text-right">
-            <small> &copy; 2015 - <?php echo date("Y") ?></small>
-        </div>
-    </div>
+
 </div>
+<!--end body-content -->
 
 
-<!-- End of Modal -->
 
-</body>
-</html>
+@stop
+
+@section('style')
+@stop
+
+@section('script')
+@stop
