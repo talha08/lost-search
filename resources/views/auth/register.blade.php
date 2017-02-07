@@ -11,33 +11,46 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- buttons top -->
-                            <p><a href="#" class="btn btn-primary btn-theme btn-block"><i class="fa fa-facebook pull-left bordered-right"></i> Register with Facebook</a></p>
-                            <p><a href="#" class="btn btn-danger btn-theme btn-block"><i class="fa fa-google-plus pull-left bordered-right"></i> Register with Google</a></p>
+
+                            @include('includes.alert')
+
+
+                                    <!-- buttons top -->
+                            <p><a href="{!! route('login/fb') !!}" class="btn btn-primary btn-theme btn-block"><i class="fa fa-facebook pull-left bordered-right"></i> Register with Facebook</a></p>
+                            <p><a href="{!! route('login/gp') !!}" class="btn btn-danger btn-theme btn-block"><i class="fa fa-google-plus pull-left bordered-right"></i> Register with Google</a></p>
                             <!-- end buttons top -->
 
                             <div class="white-space-10"></div>
                             <p class="text-center"><span class="span-line">OR</span></p>
 
-                            <!-- form login -->
-                            <form>
+
+                            <!-- form Sign up -->
+                            {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
+                                </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Your Email">
+                                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Your Password">
+                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Re-type Password</label>
-                                    <input type="password" class="form-control" placeholder="Re-type Your Password">
+                                    {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
                                 </div>
                                 <div class="white-space-10"></div>
                                 <div class="form-group no-margin">
-                                    <button class="btn btn-theme btn-lg btn-t-primary btn-block">Register</button>
+                                    {!! Form::submit('Register', array('class' => 'btn btn-theme btn-lg btn-t-primary btn-block', 'type'=>'submit')) !!}
                                 </div>
-                            </form><!-- form login -->
+                            {!! Form::close() !!}
+                             <!-- end of form Sign up -->
+
+
+
 
                         </div>
                     </div>
@@ -45,7 +58,7 @@
             </div>
 
             <div class="white-space-20"></div>
-            <div class="text-center color-white">By creating an account, you agree to JobPlanet <br/><a href="#" class="link-white"><strong>Terms of Service</strong></a> and consent to our <a href="#" class="link-white"><strong>Privacy Policy</strong></a>.</div>
+            <div class="text-center color-white">Already a member? &nbsp; <a href="{!! route('login') !!}" class="link-white"><strong>Log In with your free account.</strong></a></div>
         </div>
     </div>
 

@@ -11,12 +11,13 @@
 {!! Html::script('assets/theme/js/theme.js') !!}
 
     <!-- maps -->
-{!! Html::script('http://maps.googleapis.com/maps/api/js?sensor=false') !!}
-{!! Html::script('assets/plugins/gmap3.min.js') !!}
-    <!-- maps single marker -->
+{{--{!! Html::script('http://maps.googleapis.com/maps/api/js?sensor=false') !!}--}}
+{{--{!! Html::script('assets/plugins/gmap3.min.js') !!}--}}
 
+    <!-- maps single marker -->
 {!! Html::script('assets/theme/js/map-detail.js') !!}
 
+        <!-- addition custom script by talha -->
 {!! Html::script('assets/js/script.js') !!}
 
    <!-- toastr -->

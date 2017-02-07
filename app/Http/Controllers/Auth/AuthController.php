@@ -101,7 +101,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials,$remember))
             {
-                return redirect()->intended('dashboard')->with('success','Welcome to InfancyIT');
+                return redirect()->intended('/')->with('success','Welcome to InfancyIT');
             } else
             {
                 return redirect()->route('login')
@@ -120,6 +120,15 @@ class AuthController extends Controller
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
+
+
+    public function index(){
+        return view('index')
+            ->with('title','Index Page')
+            ->with('user', Auth::user())
+            ->with('success',"You are successfully logged out.");
+    }
+
 
     public function dashboard(){
         return view('dashboard')

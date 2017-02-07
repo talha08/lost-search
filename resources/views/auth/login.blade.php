@@ -11,6 +11,9 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
+
+                            @include('includes.alert')
+
                             <!-- buttons top -->
                             <p><a href="{!! route('login/fb') !!}" class="btn btn-primary btn-theme btn-block"><i class="fa fa-facebook pull-left bordered-right"></i> Login with Facebook</a></p>
                             <p><a href="{!! route('login/gp') !!}" class="btn btn-danger btn-theme btn-block"><i class="fa fa-google-plus pull-left bordered-right"></i> Login with Google</a></p>

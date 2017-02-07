@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-	return view('index');
+	return Redirect::route('index');
 });
-
+Route::get('/', array('as' => 'index', 'uses' => 'Auth\AuthController@index'));
 
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
