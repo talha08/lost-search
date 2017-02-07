@@ -14,12 +14,12 @@ class CreateFoundsTable extends Migration
     {
         Schema::create('founds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('is_lost');
-            $table->string('title');
-            $table->string('lost_place');
-            $table->string('lost_date');
-            $table->string('lost_time');
-            $table->string('description');
+            $table->string('is_lost')->nullable();
+            $table->string('title')->nullable();
+            $table->string('lost_place')->nullable();
+            $table->string('lost_date')->nullable();
+            $table->string('lost_time')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 
 
 
-        <!-- body-content -->
+<!-- body-content -->
 <div class="body-content clearfix" >
 
     <!-- box simple static -->

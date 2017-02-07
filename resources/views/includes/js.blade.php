@@ -20,6 +20,10 @@
         <!-- addition custom script by talha -->
 {!! Html::script('assets/js/script.js') !!}
 
+
+{!! Html::script('assets/js/photo_upload.js') !!}
+{!! Html::script('assets/js/multipleImage.js') !!}
+
    <!-- toastr -->
 {!! Html::script('assets/toastr/toastr.min.js') !!}
 @include('includes.toastr')

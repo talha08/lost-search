@@ -9,7 +9,9 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "zizaco/entrust": "dev-laravel-5",
-        "oriceon/oauth-5-laravel": "dev-master"
+        "oriceon/oauth-5-laravel": "dev-master",
+        "intervention/image": "^2.3"
+
 
     },
     "require-dev": {
