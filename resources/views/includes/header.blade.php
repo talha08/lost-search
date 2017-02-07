@@ -3,7 +3,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Jobplanet - Responsive Job Board HTML Template </title>
+        <title>{!! 'Lost! - '.$title   !!}</title>
 
         <!--favicon-->
         <link rel="apple-touch-icon" href="assets/theme/images/apple-touch-icon.png">

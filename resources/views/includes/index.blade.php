@@ -1,13 +1,13 @@
 <div class="inner-hero-header">
     <div class="container">
         <div class="text-center logo">
-            <center>
-                <h4 style="color: #868585; font-family: cursive;">
-                    Search Lost Objects Or Persons Information and Post Found Objects <br>
-                    Or Persons Informations To The Website To Help Others<br>
-                    Who Have Lost Their Valuable Things Or Persons.
-                </h4>
-            </center>
+            {{--<center>--}}
+                {{--<h4 style="color: #868585; font-family: cursive;">--}}
+                    {{--Search Lost Objects Or Persons Information and Post Found Objects <br>--}}
+                    {{--Or Persons Informations To The Website To Help Others<br>--}}
+                    {{--Who Have Lost Their Valuable Things Or Persons.--}}
+                {{--</h4>--}}
+            {{--</center>--}}
 
             <!-- Homepage type Section -->
             <h1 style="color: white;font-size: -webkit-xxx-large;font-weight: bold;font-family: sans-serif;">
