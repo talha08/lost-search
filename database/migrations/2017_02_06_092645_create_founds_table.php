@@ -20,6 +20,9 @@ class CreateFoundsTable extends Migration
             $table->string('lost_date')->nullable();
             $table->string('lost_time')->nullable();
             $table->string('description')->nullable();
+
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -22,13 +22,50 @@ class FoundController extends Controller
     }
 
 
-    // all post for Auth user
+    // all post for Front user
     public function index()
     {
-        $founds = Found::where('user_id', \Auth::user()->id)
-                ->get();
-        return view('found.mydata', compact('founds'))->with('title',"My Post");
+        $founds = Found::all();
+        return view('found.index', compact('founds'))->with('title',"My Post");
     }
+
+
+
+
+        // all post for specific user
+      public function mypost(){
+          $founds = Found::where('user_id', \Auth::user()->id)
+              ->get();
+          return view('found.mypost', compact('founds'))->with('title',"My Post");
+      }
+
+
+
+//    public function userFound(){
+//        $founds = Found::where('is_lost', 'found')
+//            ->get();
+//        return view('found.index', compact('founds'))->with('title',"Found Post");
+//    }
+//
+//
+//    public function userLost(){
+//        $founds = Found::where('is_lost', 'found')
+//            ->get();
+//        return view('found.index', compact('founds'))->with('title',"Lost Post");
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //show post

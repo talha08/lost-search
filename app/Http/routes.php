@@ -49,7 +49,8 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 //found section
-Route::get('found/all', array('as' => 'found.all', 'uses' => 'FoundController@allPost'));
+Route::get('found/all', array('as' => 'found.all', 'uses' => 'FoundController@allPost')); // admin
+Route::get('found/mypost', array('as' => 'found.mypost', 'uses' => 'FoundController@mypost')); //admin, auth
 
 
 Route::get('found/', array('as' => 'found.index', 'uses' => 'FoundController@index'));
