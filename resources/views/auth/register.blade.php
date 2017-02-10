@@ -30,6 +30,12 @@
                                     <label>Name</label>
                                     {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    {!! Form::text('phone', '', array('class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus')) !!}
+                                </div>
+
                                 <div class="form-group">
                                     <label>Email</label>
                                     {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}

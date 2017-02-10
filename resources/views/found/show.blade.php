@@ -21,44 +21,19 @@
                                 @endforeach
                             </ul>
                             <div id="bx-pager">
-                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset('front/images/item/tp/Image00014.jpg') !!}" alt="img"/></a>
-                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset('front/images/item/tp/Image00015.jpg') !!}" alt="img"/></a>
-                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset('front/images/item/tp/Image00013.jpg') !!}" alt="img"/></a>
+                                @foreach($found->attachments as $file)
+                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset($file->icon) !!}" alt="img"/></a>
+                                @endforeach
                              </div>
                         </div>
+
+
 
                         <div class="Ads-Details">
                             <h5 class="list-title"><strong>Ads Detsils</strong></h5>
                             <div class="row">
                                 <div class="ads-details-info col-md-8">
-                                    <p>Sony Xperia C3 Dual smartphone with 5.50-inch 720x1280 display powered by 1.2GHz
-                                        processor alongside 1GB RAM and 8-megapixel rear camera. </p>
-                                    <h4>Camera and video</h4>
-                                    <ul class="list-circle">
-                                        <li>5 MP Front-facing camera (720p)</li>
-                                        <li>Front flash LED</li>
-                                        <li>Wide view front camera</li>
-                                        <li>8 MP camera with auto focus</li>
-                                        <li>HD video recording 1080 p</li>
-                                        <li>Sony Exmor RS for mobile image sensor</li>
-                                        <li>HDR (High Dynamic Range) for photos and videos</li>
-                                        <li>Pulsed LED flash</li>
-                                        <li>16x digital zoom</li>
-                                        <li>Superior Auto – automatic scene selection</li>
-                                        <li>Geotagging – add location info to your photos</li>
-                                        <li>Object tracking – lock focus on a specific object</li>
-                                        <li>Red-eye reduction</li>
-                                        <li>Image capture, supported file format: JPEG</li>
-                                        <li>Image playback, supported file formats: BMP, GIF, JPEG, PNG; WebP</li>
-                                        <li>Video capture, supported file formats: 3GPP, MP4</li>
-                                        <li>Video playback, supported file formats: 3GPP, MP4, M4V, AvI, XVID, WEBM</li>
-                                    </ul>
-                                    <h4>Networks</h4>
-                                    <ul>
-                                        <li>GSM GPRS/EDGE (2G)</li>
-                                        <li>UMTS HSPA (3G)</li>
-                                        <li>LTE (4G)</li>
-                                    </ul>
+                                    <p>{!! $found->description !!}</p>
                                 </div>
                                 <div class="col-md-4">
                                     <aside class="panel panel-body panel-details">

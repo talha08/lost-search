@@ -23,13 +23,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Found::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
-        'is_lost' => 'lost',
-        'title' =>  $faker->title,
+        'user_id' => $faker->numberBetween(1,2),
+        'is_lost' => $faker->randomElement(['lost','found']),
+        'title' =>  $faker->sentence,
         'lost_place' =>  $faker->streetName,
         'lost_date' => $faker->date('Y_m-d'),
         'lost_time' => $faker->time('H:i:s'),
-        'description' => $faker->sentence(30)
+        'description' => $faker->sentence(100)
     ];
 });
 
@@ -37,16 +37,18 @@ $factory->define(App\Found::class, function (Faker\Generator $faker) {
 
 $factory->define(App\FoundAttachment::class, function (Faker\Generator $faker) {
     return [
-        'found_id' => 1,
+        'found_id' => $faker->numberBetween(1,50),
+        //'image' => $faker->image($dir = 'upload/found/found-', $width = 620, $height = 413),
+        //'image' => $faker->image($dir = 'upload/found/icon/found-', $width = 240, $height = 200),
         'image' => $faker->imageUrl(620,413),
         'icon' =>  $faker->imageUrl(240,200),
     ];
 });
 
 
-$factory->define(App\FoundAttachment::class, function (Faker\Generator $faker) {
+$factory->define(App\FoundReply::class, function (Faker\Generator $faker) {
     return [
-        'found_id' => 1,
+        'found_id' => $faker->numberBetween(1,50),
         'name' => $faker->name,
         'email' =>  $faker->email,
         'description' =>  $faker->sentence(50)

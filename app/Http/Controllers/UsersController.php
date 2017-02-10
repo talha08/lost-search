@@ -43,6 +43,7 @@ class UsersController extends Controller
     {
         $rules =[
             'name'                  => 'required',
+            'phone'                  => 'required',
             'email'                 => 'required|unique:users,email',
             'password'              => 'required|confirmed',
             'password_confirmation' => 'required'
@@ -56,6 +57,7 @@ class UsersController extends Controller
         }else{
             $user = new User;
             $user->name = $data['name'];
+            $user->phone = $data['phone'];
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
 
