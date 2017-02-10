@@ -131,18 +131,22 @@ class FoundController extends Controller
                     $fileName = md5(rand(11111, 99999)) . '.' . $extension; // renameing image
                     //path set
                     $img_url = 'upload/found/found-'.$found->id.'_'.$fileName;
+                    $icon_url = 'upload/found/icon/found-'.$found->id.'_'.$fileName;
                     //resize and crop image using Image Intervention
                     // Image::make($file)->crop(558, 221, 30, 30)->save(public_path($img_url));
 
 
                     list($width, $height) = getimagesize($file);
-                    $h = ($height/$width)*600;
-                    Image::make($file)->resize(600, $h)->save(public_path($img_url));
+                    $h = ($height/$width)*620;
+                    $w = ($height/$width)*413;
+                    Image::make($file)->resize($w, $h)->save(public_path($img_url));
+                    Image::make($file)->resize(240, 200)->save(public_path($icon_url));
                     Image::make($file)->save(public_path($img_url));
 
                     $foundFile = new FoundAttachment();
                     $foundFile->found_id = $found->id;
                     $foundFile->image = $img_url;
+                    $foundFile->icon = $icon_url;
                     $foundFile->save();
                 }
             }
@@ -196,10 +200,12 @@ class FoundController extends Controller
         Found::destroy($id);
         $photos = FoundAttachment::find($id);
         $filename = public_path().'upload/found/found-'.$photos->found_photo;
+        $icon = public_path().'upload/found/icon/found-'.$photos->found_photo;
 
         if (\File::exists($filename)) {
 
             if(\File::delete($filename) && FoundAttachment::destroy($id)){
+                \File::delete($icon) ;
                 return redirect()->route('found.index')->with('success',"Photo deleted Successfully.");
             }
             else{

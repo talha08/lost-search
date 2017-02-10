@@ -9,16 +9,16 @@
             <div class="row">
                 <div class="col-sm-9 page-content col-thin-right">
                     <div class="inner inner-box ads-details-wrapper">
-                        <h2> Xperia C3 Dual available
+                        <h2> {!! $found->title !!}
                             <small class="label label-default adlistingtype">Company ad</small>
                         </h2>
                         <span class="info-row"> <span class="date"><i class=" icon-clock"> </i> Today 1:21 pm </span> - <span class="category">Electronics </span>- <span class="item-location"><i class="fa fa-map-marker"></i> New York </span> </span>
                         <div class="ads-image">
-                            <h1 class="pricetag"> $25</h1>
+                            <h1 class="pricetag">{!! $found->is_lost !!}</h1>
                             <ul class="bxslider">
-                                {!! Html::image('front/images/item/tp-big/Image00014.jpg') !!}
-                                {!! Html::image('front/images/item/tp-big/Image00015.jpg') !!}
-                                {!! Html::image('front/images/item/tp-big/Image00013.jpg') !!}
+                                @foreach($found->attachments as $file)
+                                {!! Html::image($file->image, 'alt',array( 'width' => 620, 'height' => 413 )) !!}
+                                @endforeach
                             </ul>
                             <div id="bx-pager">
                                 <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset('front/images/item/tp/Image00014.jpg') !!}" alt="img"/></a>
