@@ -21,7 +21,7 @@
 {!! Html::script('assets/js/script.js') !!}
 
 
-{!! Html::script('assets/js/photo_upload.js') !!}
+{{--{!! Html::script('assets/js/photo_upload.js') !!}--}}
 {!! Html::script('assets/js/multipleImage.js') !!}
 
    <!-- toastr -->

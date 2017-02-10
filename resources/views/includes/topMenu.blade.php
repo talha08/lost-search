@@ -34,6 +34,7 @@
           </ul>
         </li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
@@ -55,6 +56,26 @@
     </div>
   </div>
 </nav><!-- end main navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- mobile navbar -->
 <div class="container">

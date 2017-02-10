@@ -72,7 +72,7 @@ class FoundController extends Controller
     public function show($id){
 
         $found = Found::where('id', $id )->first();
-        return view('found.show', compact('found'))->with('title',"My Post");
+        return view('found.show', compact('found'))->with('title',str_limit($found->title , 50));
     }
 
 
@@ -112,12 +112,14 @@ class FoundController extends Controller
     {
 
         $found = new Found();
+        $found->user_id = \Auth::user()->id;
         $found->is_lost = $request->is_lost;
         $found->title = $request->title;
         $found->lost_place = $request->lost_place;
         $found->lost_date = $request->lost_date;
         $found->lost_time = $request->lost_time;
         $found->description = $request->description;
+
 
         if($found->save()){
 

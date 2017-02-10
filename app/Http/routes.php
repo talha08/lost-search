@@ -44,22 +44,29 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
+
+
+    //found section
+	Route::get('found/all', array('as' => 'found.all', 'uses' => 'FoundController@allPost')); // admin
+	Route::get('found/mypost', array('as' => 'found.mypost', 'uses' => 'FoundController@mypost')); //admin, auth
+
+	Route::get('found/', array('as' => 'found.index', 'uses' => 'FoundController@index'));
+
+
+	Route::get('found/create', array('as' => 'found.create', 'uses' => 'FoundController@create'));
+	Route::post('found', array('as' => 'found.store', 'uses' => 'FoundController@store'));
+	Route::get('found/{id}/edit', array('as' => 'found.edit', 'uses' => 'FoundController@edit'));
+	Route::put('found/{id}/update', array('as' => 'found.update', 'uses' => 'FoundController@update'));
+	Route::get('found/{id}/show', array('as' => 'found.show', 'uses' => 'FoundController@show'));
+	Route::delete('found/{id}', array('as' => 'found.delete', 'uses' => 'FoundController@destroy'));
+
+
+
+
+
+
+
 });
-
-
-
-//found section
-Route::get('found/all', array('as' => 'found.all', 'uses' => 'FoundController@allPost')); // admin
-Route::get('found/mypost', array('as' => 'found.mypost', 'uses' => 'FoundController@mypost')); //admin, auth
-
-
-Route::get('found/', array('as' => 'found.index', 'uses' => 'FoundController@index'));
-Route::get('found/create', array('as' => 'found.create', 'uses' => 'FoundController@create'));
-Route::post('found', array('as' => 'found.store', 'uses' => 'FoundController@store'));
-Route::get('found/{id}/edit', array('as' => 'found.edit', 'uses' => 'FoundController@edit'));
-Route::put('found/{id}/update', array('as' => 'found.update', 'uses' => 'FoundController@update'));
-Route::delete('found/{id}', array('as' => 'found.delete', 'uses' => 'FoundController@destroy'));
-
 
 
 

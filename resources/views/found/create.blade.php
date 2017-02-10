@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-
+@include('includes.title')
 
     <!-- body-content -->
     <div class="body-content clearfix" >

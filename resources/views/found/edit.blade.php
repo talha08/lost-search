@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+@include('includes.title')
 
 
         <!-- body-content -->

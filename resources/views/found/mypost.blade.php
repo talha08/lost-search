@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
-    @include('includes.alert')
+@include('includes.alert')
+@include('includes.title')
 
 
     <div class="body-content clearfix" >
