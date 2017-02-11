@@ -19,29 +19,8 @@
         <div class="col-md-8">
             <!-- form search -->
             <br><br>
-            <form class="form-search-list">
-                <div class="row">
-                    <div class="col-sm-5 col-xs-6 ">
-                        <div class="form-group">
-                            <label class="color-white">What</label>
-                            <input class="form-control" placeholder="job title, keywords or company name" >
-                        </div>
-                    </div>
-                    <div class="col-sm-5 col-xs-6 ">
-                        <div class="form-group">
-                            <label class="color-white">Where</label>
-                            <input class="form-control" placeholder="city, province, or region">
-                        </div>
-                    </div>
-                    <div class="col-sm-2 col-xs-12 ">
-                        <div class="form-group">
-                            <label class="hidden-xs">&nbsp;</label>
-                            <button class="btn btn-block btn-theme  btn-success">Search</button>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-right"><a href="#modal-advanced" data-toggle="modal" class="link-white">Advanced Search</a></p>
-            </form>  <!-- form search -->
+            @include('includes.search')
+            <!-- form search -->
         </div>
 
 
@@ -64,9 +43,10 @@
             <div class="row">
                 <div class="col-md-9">
 
+
                     <!-- box listing -->
                     <div class="block-section-sm box-list-area">
-
+                    @if(count($founds) != 0))
                         @foreach($founds as $found)
                             <!-- item list -->
                             <div class="box-list">
@@ -104,8 +84,12 @@
                            </nav>
                        </center>
                         <!-- pagination -->
-
+                        @else
+                            No Post Found
+                        @endif
                     </div><!-- end box listing -->
+
+
                 </div>
 
 
