@@ -4,9 +4,8 @@
 	  <div class="row">
 		<div class="col-sm-6">
 		  <ul class="list-inline link-footer text-center-xs">
-			<li><a href="index-2.html">Home</a></li>
-			<li><a href="blog.html">Blog</a></li>
-			<li><a href="about.html">About Us</a></li>
+			<li><a href="{!! route('index') !!}">Home</a></li>
+			<li><a href="{!! route('about') !!}">About Us</a></li>
 			<li><a href="contact.html">Contact Us</a></li>
 		  </ul>
 		</div>

@@ -15,9 +15,9 @@
         <li class=""><a href="{!! route('allLostPost') !!}"><strong>Lost</strong></a></li>
         <li class=""><a href="{!! route('allFoundPost') !!}"><strong>Found</strong></a></li>
         @if(! Auth::user())
-        <li class="link-btn"><a href="#need-Login" data-toggle="modal" ><span class="btn btn-theme  btn-pill btn-xs btn-line">New Post</span></a></li>
+        <li class="link-btn1"><a href="#need-Login" data-toggle="modal" ><span class="btn btn-theme  btn-pill btn-xs btn-line">New Post</span></a></li>
         @else
-          <li class="link-btn"><a href="{!! route('post.create') !!}" ><span class="btn btn-theme  btn-pill btn-xs btn-line">New Post</span></a></li>
+          <li class="link-btn1"><a href="{!! route('post.create') !!}" ><span class="btn btn-theme  btn-pill btn-xs btn-line">New Post</span></a></li>
         @endif
       </ul>
 
