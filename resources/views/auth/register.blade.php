@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Phone</label>
                                     {!! Form::text('phone', '', array('class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus')) !!}
                                 </div>
 

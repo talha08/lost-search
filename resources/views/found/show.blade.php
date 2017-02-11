@@ -10,9 +10,9 @@
                 <div class="col-sm-9 page-content col-thin-right">
                     <div class="inner inner-box ads-details-wrapper">
                         <h2> {!! $found->title !!}
-                            <small class="label label-default adlistingtype">Company ad</small>
+                            {{--<small class="label label-default adlistingtype">Company ad</small>--}}
                         </h2>
-                        <span class="info-row"> <span class="date"><i class=" icon-clock"> </i> Today 1:21 pm </span> - <span class="category">Electronics </span>- <span class="item-location"><i class="fa fa-map-marker"></i> New York </span> </span>
+                        <span class="info-row"> <span class="date"><i class=" icon-clock"> </i> {!! $found->user->created_at->toFormattedDateString() !!} </span> - <span class="item-location"><i class="fa fa-map-marker"></i> {!! $found->lost_place !!} </span> </span>
                         <div class="ads-image">
                             <h1 class="pricetag">{!! $found->is_lost !!}</h1>
                             <ul class="bxslider">
@@ -30,7 +30,7 @@
 
 
                         <div class="Ads-Details">
-                            <h5 class="list-title"><strong>Ads Detsils</strong></h5>
+                            <h5 class="list-title"><strong>Details</strong></h5>
                             <div class="row">
                                 <div class="ads-details-info col-md-8">
                                     <p>{!! $found->description !!}</p>
@@ -39,19 +39,16 @@
                                     <aside class="panel panel-body panel-details">
                                         <ul>
                                             <li>
-                                                <p class=" no-margin "><strong>Price:</strong> $ 2,45</p>
+                                                <p class=" no-margin "><strong>Type:</strong> &nbsp; {!! $found->is_lost !!} </p>
                                             </li>
                                             <li>
-                                                <p class="no-margin"><strong>Type:</strong> Mobile Mobiles,For sale</p>
+                                                <p class="no-margin"><strong>Location:</strong>&nbsp;{!! $found->lost_place  !!} </p>
                                             </li>
                                             <li>
-                                                <p class="no-margin"><strong>Location:</strong> New York </p>
+                                                <p class="no-margin"><strong>Time:</strong>&nbsp;{!! $found->lost_time  !!} </p>
                                             </li>
                                             <li>
-                                                <p class=" no-margin "><strong>Condition:</strong> New</p>
-                                            </li>
-                                            <li>
-                                                <p class="no-margin"><strong>Brand:</strong> Sony</p>
+                                                <p class="no-margin"><strong>Date:</strong>&nbsp;{!! $found->lost_date !!} </p>
                                             </li>
                                         </ul>
                                     </aside>
@@ -65,7 +62,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-footer text-left"><a class="btn  btn-default" data-toggle="modal" href="#contactAdvertiser"><i class=" icon-mail-2"></i> Send a message </a> <a class="btn  btn-info"><i class=" icon-phone-1"></i> 01680 531 352 </a></div>
+                            <div class="content-footer text-left">
+                                <a class="btn  btn-default" data-toggle="modal" href="#contactAdvertiser"><i class=" icon-mail-2"></i> Send a message </a>
+                                <a class="btn  btn-info"><i class=" icon-phone-1"></i>{!! $found->user->phone !!} </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,12 +78,14 @@
                             <div class="panel-content user-info">
                                 <div class="panel-body text-center">
                                     <div class="seller-info">
-                                        <h3 class="no-margin">Richard Aki</h3>
+                                        <h3 class="no-margin">{!! $found->user->name !!}</h3>
                                         <p>Location: <strong>New York</strong></p>
-                                        <p> Joined: <strong>12 Mar 2009</strong></p>
+                                        <p> Joined: <strong>{!! $found->user->created_at->toFormattedDateString() !!}</strong></p>
                                     </div>
-                                    <div class="user-ads-action"><a href="#contactAdvertiser" data-toggle="modal" class="btn   btn-default btn-block"><i class=" icon-mail-2"></i> Send a message </a> <a class="btn  btn-info btn-block"><i class=" icon-phone-1"></i> 01680 531 352
-                                        </a></div>
+                                    <div class="user-ads-action">
+                                        <a href="#contactAdvertiser" data-toggle="modal" class="btn   btn-default btn-block"><i class=" icon-mail-2"></i> Send a message </a>
+                                        <a class="btn  btn-info btn-block"><i class=" icon-phone-1"></i> {!! $found->user->phone !!}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +107,13 @@
             </div>
     </div>
     <!-- end box simple static -->
+
+
+
+
+        @include('includes.reply')
+
+
 </div>
 <!--end body-content -->
 @stop

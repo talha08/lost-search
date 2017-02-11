@@ -25,8 +25,8 @@ class FoundController extends Controller
     // all post for Front user
     public function index()
     {
-        $founds = Found::all();
-        return view('found.index', compact('founds'))->with('title',"My Post");
+        $founds = Found::paginate(10);
+        return view('found.index', compact('founds'))->with('title',"Posts");
     }
 
 

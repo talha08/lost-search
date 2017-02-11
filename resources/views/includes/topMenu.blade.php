@@ -36,6 +36,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        @if( Auth::user())
         <li class="dropdown">
           <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
             <img src="assets/theme/images/people/4.jpg" alt="" class="img-profile"> &nbsp; Jhon <b class="caret"></b>
@@ -46,11 +47,14 @@
             <li><a href="change_password.html"> Change Password</a></li>
           </ul>
         </li>
-        @if(! Auth::user())
+
+        <li class="link-btn"><a href="index-2.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Logout</span></a></li>
+        @else
+
           <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
           <li class="link-btn"><a href="register.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
         @endif
-          <li class="link-btn"><a href="index-2.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Logout</span></a></li>
+
 
       </ul>
     </div>
