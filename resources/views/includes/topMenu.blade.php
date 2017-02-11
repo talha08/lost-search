@@ -25,7 +25,7 @@
         @if( Auth::user())
         <li class="dropdown">
           <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
-            <img src="{!! URL::asset('assets/theme/images/people/4.jpg') !!}" alt="" class="img-profile"> &nbsp; Jhon <b class="caret"></b>
+            <img src="{!! URL::asset('upload/profile/profile.png') !!}" alt="" class="img-profile"> &nbsp; {!! Auth::user()->name !!} <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{!! route('post.mypost') !!}"> My Post </a></li>
@@ -75,7 +75,7 @@
     <ul class="nav navbar-nav nav-block-left">
       <li class="dropdown">
         <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
-          <img src="{!! URL::asset('assets/theme/images/people/4.jpg') !!}" alt="" class="img-profile"> &nbsp; Jhon <b class="caret"></b>
+          <img src="{!! URL::asset('upload/profile/profile.png') !!}" alt="" class="img-profile"> &nbsp; {!! Auth::user()->name !!} <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
           <li><a href="{!! route('post.mypost') !!}"> My Post </a></li>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Input;
 use Illuminate\Http\Request;
-use OAuth;
+use Artdarek\OAuth\OAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Redirect;
@@ -14,6 +14,16 @@ use Session;
 
 class SocialController extends Controller
 {
+
+
+    protected $oauth;
+
+    public function __construct(OAuth $oauth) {
+        $this->oauth = $oauth;
+    }
+
+
+
 
 
     public function logout(){
@@ -45,8 +55,7 @@ class SocialController extends Controller
 
         $code = \Input::get( 'code' );
 
-        $fb = \OAuth::consumer( 'Facebook' );
-
+        $fb = $this->oauth->consumer('Facebook');
         if ( !empty( $code ) ) {
 
             try {
@@ -67,6 +76,7 @@ class SocialController extends Controller
                 $user = new User;
                 $user->name = $result['last_name'];
                 $user->email = $result['email'];
+                $user->phone = '+01200000000';
                 $user->password = Hash::make($result['id']);
                 $user->save();
 
@@ -99,7 +109,8 @@ class SocialController extends Controller
 
     public function loginWithGoogle() {
         $code = Input::get( 'code' );
-        $googleService = OAuth::consumer( 'Google' );
+
+        $googleService = $this->oauth->consumer('Google');
 
         if ( !empty( $code ) ) {
             try {
@@ -118,6 +129,7 @@ class SocialController extends Controller
 
                 $user = new User;
                 $user->name = $result['family_name'];
+                $user->phone = '+01200000000';
                 $user->email = $result['email'];
                 $user->password = Hash::make($result['id']);
                 $user->save();

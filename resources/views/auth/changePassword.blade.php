@@ -10,7 +10,7 @@
             <div class="col-md-3 col-sm-3">
 
                 <div class="block-section text-center ">
-                    <img src="assets/theme/images/people/4.jpg" class="img-rounded" alt="">
+                    <img src="upload/profile/profile.png" class="img-rounded" alt="">
                     <div class="white-space-20"></div>
                     <h4>{!! $user->name !!}</h4>
                     <div class="white-space-20"></div>
