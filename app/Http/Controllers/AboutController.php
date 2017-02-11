@@ -14,9 +14,15 @@ class AboutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function about()
+       public function about()
     {
         return view('about')->with('title', 'About Lost');
+    }
+
+
+    public function condition()
+    {
+        return view('condition')->with('title', 'Lost::Terms & Condition');
     }
 
 

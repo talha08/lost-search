@@ -6,7 +6,7 @@
 		  <ul class="list-inline link-footer text-center-xs">
 			<li><a href="{!! route('index') !!}">Home</a></li>
 			<li><a href="{!! route('about') !!}">About Us</a></li>
-			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="{!! route('condition') !!}">Terms & Condition</a></li>
 		  </ul>
 		</div>
 		<div class="col-sm-6 ">
