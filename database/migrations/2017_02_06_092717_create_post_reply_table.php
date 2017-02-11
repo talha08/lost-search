@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFoundReplyTable extends Migration
+class CreatePostReplyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateFoundReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('found_reply', function (Blueprint $table) {
+        Schema::create('post_reply', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('description')->nullable();
-            $table->integer('found_id')->unsigned()->index();
-            $table->foreign('found_id')->references('id')->on('founds')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('post_id')->unsigned()->index();
+            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateFoundReplyTable extends Migration
      */
     public function down()
     {
-        Schema::drop('found_reply');
+        Schema::drop('post_reply');
     }
 }

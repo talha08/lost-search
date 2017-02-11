@@ -18,7 +18,7 @@
                 <div class="col-md-8 col-md-offset-2">
 
                     <!-- form post a job -->
-                    {!!Form::model($found,['route' => ['found.update',$found->id], 'method' => 'put' ])!!}
+                    {!!Form::model($found,['route' => ['post.update',$found->id], 'method' => 'put' ])!!}
                     <div class="form-group">
                         <label>Category</label>
                         {!!Form::select(' is_lost', $is_lost, null ,array('class' => 'select2', 'autofocus', 'required'))!!}

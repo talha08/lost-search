@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class FoundAttachmentTableSeeder extends Seeder
+class PostTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class FoundAttachmentTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\FoundAttachment::class,50)->create();
+        factory(\App\Post::class,50)->create();
     }
 }

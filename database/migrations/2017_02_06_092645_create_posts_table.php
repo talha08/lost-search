@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFoundsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateFoundsTable extends Migration
      */
     public function up()
     {
-        Schema::create('founds', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('is_lost')->nullable();
             $table->string('title')->nullable();
@@ -34,6 +34,6 @@ class CreateFoundsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('founds');
+        Schema::drop('posts');
     }
 }

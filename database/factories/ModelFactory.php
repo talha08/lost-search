@@ -21,7 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Found::class, function (Faker\Generator $faker) {
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'user_id' => $faker->numberBetween(1,2),
         'is_lost' => $faker->randomElement(['lost','found']),
@@ -35,9 +35,9 @@ $factory->define(App\Found::class, function (Faker\Generator $faker) {
 
 
 
-$factory->define(App\FoundAttachment::class, function (Faker\Generator $faker) {
+$factory->define(App\PostAttachment::class, function (Faker\Generator $faker) {
     return [
-        'found_id' => $faker->numberBetween(1,50),
+        'post_id' => $faker->numberBetween(1,50),
         //'image' => $faker->image($dir = 'upload/found/found-', $width = 620, $height = 413),
         //'image' => $faker->image($dir = 'upload/found/icon/found-', $width = 240, $height = 200),
         'image' => $faker->imageUrl(620,413),
@@ -46,9 +46,10 @@ $factory->define(App\FoundAttachment::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\FoundReply::class, function (Faker\Generator $faker) {
+
+$factory->define(App\PostReply::class, function (Faker\Generator $faker) {
     return [
-        'found_id' => $faker->numberBetween(1,50),
+        'post_id' => $faker->numberBetween(1,50),
         'name' => $faker->name,
         'email' =>  $faker->email,
         'description' =>  $faker->sentence(50)

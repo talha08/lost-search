@@ -45,7 +45,7 @@ class User extends Model implements AuthenticatableContract,
 
 
     public function founds(){
-        return $this->hasMany('App\Found','user_id','id');
+        return $this->hasMany('App\Post','user_id','id');
     }
 
 

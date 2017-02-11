@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFoundAttachmentTable extends Migration
+class CreatePostAttachmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateFoundAttachmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('found_attachment', function (Blueprint $table) {
+        Schema::create('post_attachment', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image');
             $table->string('icon');
-            $table->integer('found_id')->unsigned()->index();
-            $table->foreign('found_id')->references('id')->on('founds')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('post_id')->unsigned()->index();
+            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateFoundAttachmentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('found_attachment');
+        Schema::drop('post_attachment');
     }
 }

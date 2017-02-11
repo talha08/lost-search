@@ -17,7 +17,7 @@
                     <div class="col-md-8 col-md-offset-2">
 
                         <!-- form post a job -->
-                        {!! Form::open(array('route' => 'found.store',  'files' => true) ) !!}
+                        {!! Form::open(array('route' => 'post.store',  'files' => true) ) !!}
                             <div class="form-group">
                                 <label>Category</label>
                                 {!!Form::select(' is_lost', $is_lost, '',array('class' => 'select2', 'autofocus', 'required'))!!}
@@ -54,7 +54,7 @@
                             <div id="uploadPreview"></div><br><br>
 
 
-                            <p>Applications will be emailed to: <a href="#">your@email.com</a> – <a href="#">change email</a></p>
+                            {{--<p>Applications will be emailed to: <a href="#">your@email.com</a> – <a href="#">change email</a></p>--}}
 
                             <div class="form-group ">
                                 <button class="btn btn-t-primary btn-theme">Continue</button>

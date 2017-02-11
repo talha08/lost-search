@@ -23,32 +23,30 @@
         <div class="relative">
             <i class="fa fa-globe ic-fade-globe"></i>
             <!-- form search -->
-            <form class="form-search-home" method="post" action="#">
-
+                {!! Form::open(array('route' => 'foundSearch','method' =>'GET', 'class' => 'form-search-home') ) !!}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>What</label>
-                            <input class="form-control  input-lg" placeholder="job title, keywords or company name">
+                            {!! Form::text('keyword', null,array('','class'=>'form-control input-lg','placeholder'=>'Content Name...','required')) !!}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Where</label>
-                            <input class="form-control input-lg" placeholder="city, province, or region">
+                            {!! Form::text('location', null,array('','class'=>'form-control input-lg','placeholder'=>'city, province, or region...', 'required')) !!}
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a Jobs</button>
+                    {!! Form::submit('Search', array('class' => 'btn btn-t-primary btn-lg btn-theme btn-pill btn-block')) !!}
                 </div>
                 <div class="text-center">
                     <a href="#modal-advanced" data-toggle="modal">Advanced Job Search</a>
                 </div>
-            </form>
+                {!! Form::close() !!}
             <!-- end form search -->
         </div>
-
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class FoundReplyTableSeeder extends Seeder
+class PostReplyTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class FoundReplyTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\FoundReply::class,50)->create();
+        factory(\App\PostReply::class,50)->create();
     }
 }

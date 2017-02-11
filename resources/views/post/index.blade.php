@@ -46,11 +46,15 @@
 
                     <!-- box listing -->
                     <div class="block-section-sm box-list-area">
-                    @if(count($founds) != 0))
+                    @if(count($founds) != 0)
+                            <div class="box-list">
+                                Total {!! $count !!} result('s) post..
+                            </div>
                         @foreach($founds as $found)
+
                             <!-- item list -->
                             <div class="box-list">
-                                    <div class="item">
+                               <div class="item">
                                     <div class="row">
                                         <div class="col-md-3 hidden-sm hidden-xs">
                                             <div class="img-item">
@@ -59,14 +63,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <h3 class="no-margin-top"><a href="{!! route('found.show', $found->id) !!}" class="">{!! $found->title !!} <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+                                            <h3 class="no-margin-top"><a href="{!! route('post.show', $found->id) !!}" class="">{!! $found->title !!} <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
                                             <h5><span class="color-black"></span>Location - <span class="color-white-mute">{!! $found->lost_place !!}</span></h5>
                                             <h5><span class="color-black"></span>Category - <span class="color-white-mute">{!! $found->is_lost !!}</span></h5>
 
                                             <div>
                                                 <span class="color-white-mute">{!! $found->created_at->diffForHumans() !!}</span> -
                                                 <a href="#contactAdvertiser" data-toggle="modal"  class="btn btn-theme btn-xs btn-default">email</a> -
-                                                <a href="{!! route('found.show', $found->id) !!}" class="btn btn-theme btn-xs btn-default">more ...</a>
+                                                <a href="{!! route('post.show', $found->id) !!}" class="btn btn-theme btn-xs btn-default">more ...</a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +89,14 @@
                        </center>
                         <!-- pagination -->
                         @else
-                            No Post Found
+
+                            <div class="box-list">
+                                <div class="item">
+                                    No Post Found
+                                </div><!-- end item list -->
+                            </div>
+
+
                         @endif
                     </div><!-- end box listing -->
 

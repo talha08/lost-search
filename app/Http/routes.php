@@ -34,7 +34,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(array('middleware' => 'auth'), function()
 {
-
+	//user section
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
@@ -44,26 +44,30 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
-
-
     //found section
-	Route::get('found/all', array('as' => 'found.all', 'uses' => 'FoundController@allPost')); // admin
-	Route::get('found/mypost', array('as' => 'found.mypost', 'uses' => 'FoundController@mypost')); //admin, auth
+	Route::get('post/all', array('as' => 'post.all', 'uses' => 'PostController@allPost')); // admin
+	Route::get('post/mypost', array('as' => 'post.mypost', 'uses' => 'PostController@mypost')); //admin, auth
 
-	Route::get('found/', array('as' => 'found.index', 'uses' => 'FoundController@index'));
+	//all post
+	Route::get('post/', array('as' => 'post.index', 'uses' => 'PostController@index'));
 
-
-	Route::get('found/create', array('as' => 'found.create', 'uses' => 'FoundController@create'));
-	Route::post('found', array('as' => 'found.store', 'uses' => 'FoundController@store'));
-	Route::get('found/{id}/edit', array('as' => 'found.edit', 'uses' => 'FoundController@edit'));
-	Route::put('found/{id}/update', array('as' => 'found.update', 'uses' => 'FoundController@update'));
-	Route::get('found/{id}/show', array('as' => 'found.show', 'uses' => 'FoundController@show'));
-	Route::delete('found/{id}', array('as' => 'found.delete', 'uses' => 'FoundController@destroy'));
-
-
-
+	//post section
+	Route::get('post/create', array('as' => 'post.create', 'uses' => 'PostController@create'));
+	Route::post('post', array('as' => 'post.store', 'uses' => 'PostController@store'));
+	Route::get('post/{id}/edit', array('as' => 'post.edit', 'uses' => 'PostController@edit'));
+	Route::put('post/{id}/update', array('as' => 'post.update', 'uses' => 'PostController@update'));
+	Route::get('post/{id}/show', array('as' => 'post.show', 'uses' => 'PostController@show'));
+	Route::delete('post/{id}', array('as' => 'post.delete', 'uses' => 'PostController@destroy'));
 
 
+	//search
+	Route::get('post/search', array('as' => 'foundSearch', 'uses' => 'PostController@foundSearch'));
+	Route::get('post/advanced/search', array('as' => 'foundAdvancedSearch', 'uses' => 'PostController@foundAdvancedSearch'));
+
+
+	//lost and found post
+	Route::get('post/lostPost', array('as' => 'allLostPost', 'uses' => 'PostController@lostPost'));
+	Route::get('post/foundPost', array('as' => 'allFoundPost', 'uses' => 'PostController@foundPost'));
 
 
 });

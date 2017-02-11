@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Found;
+use App\Post;
 use App\FoundAttachment;
 use Illuminate\Http\Request;
 
@@ -10,48 +10,148 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class FoundController extends Controller
+class PostController extends Controller
 {
 
 
     // all post for admin
     public function allPost()
     {
-        $founds = Found::all();
-        return view('found.all', compact('founds'))->with('title',"All Post");
+        $founds = Post::all();
+        return view('post.all', compact('founds'))->with('title',"All Post");
     }
+
 
 
     // all post for Front user
     public function index()
     {
-        $founds = Found::paginate(10);
-        return view('found.index', compact('founds'))->with('title',"Posts");
+        $founds = Post::orderBy('id', 'desc')->paginate(10);
+        $count = Post::count();
+        return view('post.index', compact('founds','count'))->with('title',"Posts");
     }
 
 
 
 
-        // all post for specific user
+
+
+
+
+    public function foundAdvancedSearch(Request $request){
+
+            //return $request->all();
+        $type = $request->type;
+        $title ='%'.$request->title.'%';
+        $place ='%'.$request->place.'%';
+        $date =  $request->date;
+
+        if($type == 'all'){
+            $founds = Post::where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+
+            $count = Post::where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->count();
+
+        }elseif($type == 'lost'){
+            $founds = Post::where('is_lost', 'lost')
+                ->where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+            $count = Post::where('is_lost', 'lost')
+                ->where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->count();
+
+        }elseif($type == 'found'){
+            $founds = Post::where('is_lost', 'found')
+                ->where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+
+            $count = Post::where('is_lost', 'found')
+                ->where('title','LIKE', $title)
+                ->where('lost_place', 'LIKE',$place )
+                ->where('lost_date', 'LIKE',$date )
+                ->count();
+
+        }else{
+            $founds = [];
+            $count = 0;
+        }
+
+        return view('post.index',compact('founds','count'))->with('title','Search Result');
+    }
+
+
+
+
+
+
+
+
+
+    public function foundSearch(Request $request){
+
+        $keyword = '%'.$request->keyword.'%';
+        $location ='%'.$request->location.'%';
+
+
+        if($request->has('keyword') && $request->has('location')){
+             $founds = Post::where('lost_place','LIKE', $location)->where(function($query) use ($keyword){
+                $query->where('title', 'LIKE', $keyword)
+                    ->orWhere('description', 'LIKE', $keyword);
+            })->orderBy('id', 'desc')
+                ->paginate(10);
+
+            $count = Post::where('lost_place','LIKE', $location)->where(function($query) use ($keyword){
+                $query->where('title', 'LIKE', $keyword)
+                    ->orWhere('description', 'LIKE', $keyword);
+            })->count();
+
+        }else{
+            $founds = [];
+            $count = 0;
+        }
+        return view('post.index',compact('founds','count'))->with('title','Search Result');
+    }
+
+
+
+
+
+
+
+    // all post for specific user
       public function mypost(){
-          $founds = Found::where('user_id', \Auth::user()->id)
+          $founds = Post::where('user_id', \Auth::user()->id)
               ->get();
-          return view('found.mypost', compact('founds'))->with('title',"My Post");
+          return view('post.mypost', compact('founds'))->with('title',"My Post");
       }
 
 
 
 //    public function userFound(){
-//        $founds = Found::where('is_lost', 'found')
+//        $founds = Post::where('is_lost', 'found')
 //            ->get();
-//        return view('found.index', compact('founds'))->with('title',"Found Post");
+//        return view('post.index', compact('founds'))->with('title',"Found Post");
 //    }
 //
 //
 //    public function userLost(){
-//        $founds = Found::where('is_lost', 'found')
+//        $founds = Post::where('is_lost', 'found')
 //            ->get();
-//        return view('found.index', compact('founds'))->with('title',"Lost Post");
+//        return view('post.index', compact('founds'))->with('title',"Lost Post");
 //    }
 
 
@@ -71,21 +171,19 @@ class FoundController extends Controller
     //show post
     public function show($id){
 
-        $found = Found::where('id', $id )->first();
-        return view('found.show', compact('found'))->with('title',str_limit($found->title , 50));
+        $found = Post::where('id', $id )->first();
+        return view('post.show', compact('found'))->with('title',str_limit($found->title , 50));
     }
 
 
 
 
 
-//    public function search($id){
-//        $founds = found::where('dept_id',\Auth::user()->dept->id)->get();
-//        //$foundIds = found::where('id',$id)->first();
-//        $al = found::findOrFail($id);
-//        $photos = foundPhotos::where('found_id',$id)->get();
-//        return view('found.index', compact('founds','photos','al'))->with('title','found - '.$al->found_title);
-//    }
+
+
+
+
+
 
 
 
@@ -101,8 +199,12 @@ class FoundController extends Controller
             'found' => 'Found',
 
         ];
-        return view('found.create', compact('is_lost'))->with('title',"Create New Post");
+        return view('post.create', compact('is_lost'))->with('title',"Create New Post");
     }
+
+
+
+
 
 
 
@@ -144,16 +246,18 @@ class FoundController extends Controller
                     Image::make($file)->save(public_path($img_url));
 
                     $foundFile = new FoundAttachment();
-                    $foundFile->found_id = $found->id;
+                    $foundFile->post_id = $found->id;
                     $foundFile->image = $img_url;
                     $foundFile->icon = $icon_url;
                     $foundFile->save();
                 }
             }
-            return redirect()->route('found.index')->with('success', 'Post Successfully Created');
+            return redirect()->route('post.index')->with('success', 'Post Successfully Created');
         }
-        return redirect()->route('found.index')->with('error', 'Something went wrong');
+        return redirect()->route('post.index')->with('error', 'Something went wrong');
     }
+
+
 
 
 
@@ -168,9 +272,11 @@ class FoundController extends Controller
             'found' => 'Found',
 
         ];
-        $found = Found::findOrFail($id);
-        return view('found.edit', compact('is_lost','found'))->with('title',"Edit Post");
+        $found = Post::findOrFail($id);
+        return view('post.edit', compact('is_lost','found'))->with('title',"Edit Post");
     }
+
+
 
 
 
@@ -178,7 +284,7 @@ class FoundController extends Controller
 
     public function update(Request $request, $id)
     {
-        $found = Found::findOrFail($id);
+        $found = Post::findOrFail($id);
         $found->is_lost = $request->is_lost;
         $found->title = $request->title;
         $found->lost_place = $request->lost_place;
@@ -186,18 +292,22 @@ class FoundController extends Controller
         $found->lost_time = $request->lost_time;
         $found->description = $request->description;
         if( $found->save()){
-           return redirect()->route('found.index')->with('success', 'Post Successfully Updated');
+           return redirect()->route('post.index')->with('success', 'Post Successfully Updated');
             }else{
-           return redirect()->route('found.index')->with('error', 'Something went wrong');
+           return redirect()->route('post.index')->with('error', 'Something went wrong');
        }
 
     }
 
 
 
+
+
+
+
     public function destroy($id)
     {
-        Found::destroy($id);
+        Post::destroy($id);
         $photos = FoundAttachment::find($id);
         $filename = public_path().'upload/found/found-'.$photos->found_photo;
         $icon = public_path().'upload/found/icon/found-'.$photos->found_photo;
@@ -206,10 +316,10 @@ class FoundController extends Controller
 
             if(\File::delete($filename) && FoundAttachment::destroy($id)){
                 \File::delete($icon) ;
-                return redirect()->route('found.index')->with('success',"Photo deleted Successfully.");
+                return redirect()->route('post.index')->with('success',"Photo deleted Successfully.");
             }
             else{
-                return redirect()->route('found.index')->with('error',"Something went wrong.Try again");
+                return redirect()->route('post.index')->with('error',"Something went wrong.Try again");
             }
         }
         else{
@@ -227,11 +337,32 @@ class FoundController extends Controller
 
 
 
+  public function lostPost(){
+
+      $founds = Post::where('is_lost', 'lost')
+          ->orderBy('id', 'desc')
+          ->paginate(10);
+
+      $count = Post::where('is_lost', 'lost')
+          ->count();
+
+      return view('post.index',compact('founds','count'))->with('title','Lost Post');
+  }
 
 
 
 
+    public function foundPost(){
 
+        $founds = Post::where('is_lost', 'found')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
+        $count = Post::where('is_lost', 'found')
+            ->count();
+
+        return view('post.index',compact('founds','count'))->with('title','Found Post');
+    }
 
 
 
@@ -263,10 +394,10 @@ class FoundController extends Controller
 //        if (\File::exists($filename)) {
 //
 //            if(\File::delete($filename) && FoundAttachment::destroy($id)){
-//                return redirect()->route('found.index')->with('success',"Photo deleted Successfully.");
+//                return redirect()->route('post.index')->with('success',"Photo deleted Successfully.");
 //            }
 //            else{
-//                return redirect()->route('found.index')->with('error',"Something went wrong.Try again");
+//                return redirect()->route('post.index')->with('error',"Something went wrong.Try again");
 //            }
 //        }
 //        else{
@@ -311,10 +442,10 @@ class FoundController extends Controller
 //                $foundFile->image = $img_url;
 //                $foundFile->save();
 //            }
-//            return redirect()->route('found.search', $data['found_id'])->with('success', 'Photos Successfully Updated');
+//            return redirect()->route('post.search', $data['found_id'])->with('success', 'Photos Successfully Updated');
 //
 //        }else{
-//            return redirect()->route('found.search', $data['found_id'])->with('error', 'Something went wrong');
+//            return redirect()->route('post.search', $data['found_id'])->with('error', 'Something went wrong');
 //        }
 //
 //
