@@ -20,3 +20,8 @@ b, strong {
 /*.btn-theme.btn-line {*/
     /*font-size: initial;*/
 /*}*/
+
+
+.main-navbar .navbar-nav > li > a .img-profile {
+    top: 8px;
+}

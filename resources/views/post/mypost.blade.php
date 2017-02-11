@@ -9,12 +9,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+
                         <table class="table table-striped table-bordered" id="datatable">
                             <thead>
                             <tr>
                                 <th>id</th>
                                 <th>Headline</th>
-                                <th>Society</th>
+                                <th>Type</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -22,8 +23,8 @@
                             @foreach ($founds as $found)
                                 <tr>
                                     <td>{!! $found->id !!}</td>
-                                    <td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$found->id}}" >{!!  str_limit($found->title,30) !!}</a></td>
-                                    <td>{!! $found->id !!}</td>
+                                    <td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$found->id}}" >{!!  $found->title !!}</a></td>
+                                    <td>{!! $found->is_lost !!}</td>
                                     <td>
                                         <a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('post.edit',$found->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $found->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -32,6 +33,7 @@
                             @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
