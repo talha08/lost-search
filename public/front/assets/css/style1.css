@@ -8,3 +8,15 @@
 .main-navbar .navbar-nav > li > a.link-profile{
     padding-top: 2px;
 }
+
+b, strong {
+    font-size: initial;
+}
+
+.btn-theme.btn-line:hover, .btn-theme.btn-line:focus {
+    font-size: initial;
+}
+
+/*.btn-theme.btn-line {*/
+    /*font-size: initial;*/
+/*}*/
