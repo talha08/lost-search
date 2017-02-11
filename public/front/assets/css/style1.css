@@ -1,0 +1,10 @@
+.main-navbar .navbar-nav > li.link-btn > a{
+    padding-top: 1px;
+}
+.btn-theme.btn-pill{
+    padding-top: 1px;
+}
+
+.main-navbar .navbar-nav > li > a.link-profile{
+    padding-top: 2px;
+}

@@ -201,19 +201,9 @@
 
 @section('style')
     {!! Html::style('front/assets/css/style.css') !!}
+    {!! Html::style('front/assets/css/style1.css') !!}
     {!! Html::style('front/assets/plugins/bxslider/jquery.bxslider.css') !!}
-    <style>
-        .main-navbar .navbar-nav > li.link-btn > a{
-            padding-top: 1px;
-        }
-        .main-navbar .navbar-nav > li.link-btn1 > a{
-            padding-top: -2px;
-        }
 
-        .main-navbar .navbar-nav > li > a.link-profile{
-            padding-top: 2px;
-        }
-    </style>
 @stop
 
 @section('script')
