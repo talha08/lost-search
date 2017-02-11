@@ -49,7 +49,7 @@
 
                     @if(count($founds) != 0)
                             <div class="box-list">
-                                Total {!! $count !!} result('s) post..
+                                Total {!! $count !!} result('s) found...
                             </div>
                         @foreach($founds as $found)
 
