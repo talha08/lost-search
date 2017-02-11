@@ -20,4 +20,8 @@ class Post extends Model
     public function attachments(){
         return $this->hasMany('App\PostAttachment','post_id','id');
     }
+
+
+
+
 }

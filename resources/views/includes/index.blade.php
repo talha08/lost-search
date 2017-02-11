@@ -42,7 +42,7 @@
                     {!! Form::submit('Search', array('class' => 'btn btn-t-primary btn-lg btn-theme btn-pill btn-block')) !!}
                 </div>
                 <div class="text-center">
-                    <a href="#modal-advanced" data-toggle="modal">Advanced Job Search</a>
+                    <a href="#modal-advanced" data-toggle="modal">Advanced Search</a>
                 </div>
                 {!! Form::close() !!}
             <!-- end form search -->

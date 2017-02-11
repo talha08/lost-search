@@ -48,11 +48,11 @@
                         {!!Form::textarea('description', null,array('class' => 'form-control','placeholder' =>  'Description goes here .....'))!!}
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('file', 'Photo Upload :', array('class' => 'control-label')) !!} <br>
-                        {!! Form::file('file[]', array('id' =>'choose', 'multiple'=>true)) !!}
-                    </div><br/>
-                    <div id="uploadPreview"></div><br><br>
+                    {{--<div class="form-group">--}}
+                        {{--{!! Form::label('file', 'Photo Upload :', array('class' => 'control-label')) !!} <br>--}}
+                        {{--{!! Form::file('file[]', array('id' =>'choose', 'multiple'=>true)) !!}--}}
+                    {{--</div><br/>--}}
+                    {{--<div id="uploadPreview"></div><br><br>--}}
 
 
                     <p>Applications will be emailed to: <a href="#">your@email.com</a> – <a href="#">change email</a></p>

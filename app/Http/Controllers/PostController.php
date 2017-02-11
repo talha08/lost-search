@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\FoundAttachment;
+use App\PostAttachment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,6 +13,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class PostController extends Controller
 {
+
+
 
 
     // all post for admin
@@ -213,7 +216,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $found = new Found();
+        $found = new Post();
         $found->user_id = \Auth::user()->id;
         $found->is_lost = $request->is_lost;
         $found->title = $request->title;
@@ -237,15 +240,19 @@ class PostController extends Controller
                     //resize and crop image using Image Intervention
                     // Image::make($file)->crop(558, 221, 30, 30)->save(public_path($img_url));
 
-
                     list($width, $height) = getimagesize($file);
                     $h = ($height/$width)*620;
                     $w = ($height/$width)*413;
                     Image::make($file)->resize($w, $h)->save(public_path($img_url));
                     Image::make($file)->resize(240, 200)->save(public_path($icon_url));
-                    Image::make($file)->save(public_path($img_url));
 
-                    $foundFile = new FoundAttachment();
+                    #water mark
+//                    $img = Image::make($file)->resize($w, $h);
+//                    $watermark = Image::make(public_path('upload/water/water.png')); //watermark picture
+//                    $img->insert($watermark, 'bottom-left', 10, 10)->save(public_path($img_url)); //insert watermark and save
+
+
+                    $foundFile = new PostAttachment();
                     $foundFile->post_id = $found->id;
                     $foundFile->image = $img_url;
                     $foundFile->icon = $icon_url;
@@ -308,13 +315,13 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
-        $photos = FoundAttachment::find($id);
+        $photos = PostAttachment::find($id);
         $filename = public_path().'upload/found/found-'.$photos->found_photo;
         $icon = public_path().'upload/found/icon/found-'.$photos->found_photo;
 
         if (\File::exists($filename)) {
 
-            if(\File::delete($filename) && FoundAttachment::destroy($id)){
+            if(\File::delete($filename) && PostAttachment::destroy($id)){
                 \File::delete($icon) ;
                 return redirect()->route('post.index')->with('success',"Photo deleted Successfully.");
             }
@@ -323,7 +330,7 @@ class PostController extends Controller
             }
         }
         else{
-            if(FoundAttachment::destroy($id)){
+            if(PostAttachment::destroy($id)){
                 return redirect()->back()->with('success',"Photo deleted Successfully.");
             }
             else{
