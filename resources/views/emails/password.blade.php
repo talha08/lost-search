@@ -5,7 +5,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Mail From InfancyIT</title>
+	<title>Mail From Lost!</title>
 
 
 	<style type="text/css">
@@ -93,7 +93,7 @@
 
 								<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
 									<td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										Stay with InfancyIT.
+										Stay with Lost!.
 									</td>
 								</tr>
 

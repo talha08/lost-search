@@ -5,10 +5,11 @@
 			toastr.options = {
 				closeButton: true,
 				progressBar: true,
+				positionClass: "toast-bottom-right",
 				showMethod: 'slideDown',
 				timeOut: 4000
 			};
-			toastr.success('InfancyIT Web App', "<?php echo $success ?>");
+			toastr.success('Lost! Web App', "<?php echo $success ?>");
 
 		}, 1300);
 
@@ -23,10 +24,11 @@
 				toastr.options = {
 					closeButton: true,
 					progressBar: true,
+					positionClass: "toast-bottom-right",
 					showMethod: 'slideDown',
 					timeOut: 4000
 				};
-				toastr.error('InfancyIT Web App', "<?php echo $error ?>");
+				toastr.error('Lost! Web App', "<?php echo $error ?>");
 
 			}, 1300);
 
@@ -42,9 +44,10 @@
 					closeButton: true,
 					progressBar: true,
 					showMethod: 'slideDown',
+					positionClass: "toast-bottom-right",
 					timeOut: 4000
 				};
-				toastr.warning('InfancyIT Web App', "<?php echo $warning ?>");
+				toastr.warning('Lost! Web App', "<?php echo $warning ?>");
 
 			}, 1300);
 
@@ -60,9 +63,10 @@
 					closeButton: true,
 					progressBar: true,
 					showMethod: 'slideDown',
+					positionClass: "toast-bottom-right",
 					timeOut: 4000
 				};
-				toastr.info('InfancyIT Web App', "<?php echo $info ?>");
+				toastr.info('Lost! Web App', "<?php echo $info ?>");
 
 			}, 1300);
 
@@ -80,9 +84,10 @@
 					closeButton: true,
 					progressBar: true,
 					showMethod: 'slideDown',
+					positionClass: "toast-bottom-right",
 					timeOut: 4000
 				};
-				toastr.error('InfancyIT Web App', "<?php echo $error ?>");
+				toastr.error('Lost! Web App', "<?php echo $error ?>");
 
 			}, 1300);
 

@@ -43,9 +43,10 @@
             <div class="row">
                 <div class="col-md-9">
 
-
                     <!-- box listing -->
                     <div class="block-section-sm box-list-area">
+                    @include('includes.alert')
+
                     @if(count($founds) != 0)
                             <div class="box-list">
                                 Total {!! $count !!} result('s) post..

@@ -37,5 +37,8 @@
         <![endif]-->
 
         @yield('style')
+
+        {!! Html::style('assets/toastr/toastr.min.css') !!}
+
 </head>
 

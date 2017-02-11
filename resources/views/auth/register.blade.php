@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            @include('includes.alert')
+
 
 
                                     <!-- buttons top -->
@@ -23,30 +23,30 @@
                             <div class="white-space-10"></div>
                             <p class="text-center"><span class="span-line">OR</span></p>
 
-
+                            @include('includes.alert')
                             <!-- form Sign up -->
                             {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
                                 <div class="form-group">
                                     <label>Name</label>
-                                    {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
+                                    {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus','required')) !!}
                                 </div>
 
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    {!! Form::text('phone', '', array('class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus')) !!}
+                                    {!! Form::text('phone', '', array('class' => 'form-control', 'placeholder' => 'Phone Number', 'autofocus','required')) !!}
                                 </div>
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+                                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus','required')) !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
+                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','required')) !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Re-type Password</label>
-                                    {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
+                                    {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password','required')) !!}
                                 </div>
                                 <div class="white-space-10"></div>
                                 <div class="form-group no-margin">
@@ -75,8 +75,8 @@
                     <i class="fa fa-question fa-5x box-icon"></i>
                     <h2 class=""> Why create an account?</h2>
                     <hr/>
-                    <p><i class="fa fa-check"></i> Manage, create and delete your job alerts</p>
-                    <p><i class="fa fa-check"></i> Access your saved jobs and notes from any computer</p>
+                    <p><i class="fa fa-check"></i> Manage, create and delete your post alerts</p>
+                    <p><i class="fa fa-check"></i> Access your saved post and notes from any computer</p>
 
                 </div>
             </div>

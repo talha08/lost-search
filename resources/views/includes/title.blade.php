@@ -1,5 +1,5 @@
 @section('title')
-<div class="container"><br>
+<div class="container">
     <div class="text-center logo">
         <div class="container">
             <!-- Homepage type Section -->

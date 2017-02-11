@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            @include('includes.alert')
+
 
                             <!-- buttons top -->
                             <p><a href="{!! route('login/fb') !!}" class="btn btn-primary btn-theme btn-block"><i class="fa fa-facebook pull-left bordered-right"></i> Login with Facebook</a></p>
@@ -21,24 +21,24 @@
 
                             <div class="white-space-10"></div>
                             <p class="text-center"><span class="span-line">OR</span></p>
-
+                            @include('includes.alert')
                             <!-- form login -->
                             {!! Form::open(array('route' => 'login', 'method' => 'post')) !!}
                                 <div class="form-group">
                                     <label>Email</label>
-                                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus')) !!}
+                                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus','required')) !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'text')) !!}
+                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'text','required')) !!}
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <div class="checkbox flat-checkbox">
-                                                <label class="cr-styled">
+                                                <label>
                                                     <input name="remember" type="checkbox" checked>
-                                                    <i class="fa"></i>
+                                                    <span class="fa fa-check"></span>
                                                     Remember me
                                                 </label>
                                             </div>
@@ -70,18 +70,18 @@
 
 
 
-    <!-- box bottom -->
-    <div class="block-section bg-color2">
-        <div class="container text-center">
-            <i class="fa fa-mobile-phone fa-5x box-icon"></i>
-            <h2 class=""> Find jobs with your phone</h2>
+    {{--<!-- box bottom -->--}}
+    {{--<div class="block-section bg-color2">--}}
+        {{--<div class="container text-center">--}}
+            {{--<i class="fa fa-mobile-phone fa-5x box-icon"></i>--}}
+            {{--<h2 class=""> Find jobs with your phone</h2>--}}
 
-            <p>Download the JobPlanet app from the</p>
-            <a href="#" class="btn btn-theme btn-default"><i class="fa fa-android bordered-right dark"></i> Android</a>
-            <span class="space-inline-10"></span>
-            <a href="#" class="btn btn-theme btn-default"><i class="fa fa-apple bordered-right dark"></i> Iphone</a>
-        </div>
-    </div><!-- end box bottom -->
+            {{--<p>Download the JobPlanet app from the</p>--}}
+            {{--<a href="#" class="btn btn-theme btn-default"><i class="fa fa-android bordered-right dark"></i> Android</a>--}}
+            {{--<span class="space-inline-10"></span>--}}
+            {{--<a href="#" class="btn btn-theme btn-default"><i class="fa fa-apple bordered-right dark"></i> Iphone</a>--}}
+        {{--</div>--}}
+    {{--</div><!-- end box bottom -->--}}
 
 
 

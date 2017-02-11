@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-
+                        @include('includes.alert')
                         <!-- form post a job -->
                         {!! Form::open(array('route' => 'post.store',  'files' => true) ) !!}
                             <div class="form-group">

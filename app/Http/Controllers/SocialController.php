@@ -86,7 +86,7 @@ class SocialController extends Controller
             \Auth::loginUsingId($user);
             Session::put('email', Auth::user()->email);
 
-            return Redirect::to('/')->with('message', 'Logged in with Facebook');
+            return Redirect::to('/')->with('success', 'Logged in with Facebook');
 
         }
         // if not ask for permission first
@@ -140,7 +140,7 @@ class SocialController extends Controller
              $user = $profile->id;
             \Auth::loginUsingId($user);
             Session::put('email', Auth::user()->email);
-            return Redirect::to('/')->with('message', 'Logged in with Google');
+            return Redirect::to('/')->with('success', 'Logged in with Google');
         }
 
         // if not ask for permission first
