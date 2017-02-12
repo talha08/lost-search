@@ -59,8 +59,12 @@
                                     <div class="row">
                                         <div class="col-md-3 hidden-sm hidden-xs">
                                             <div class="img-item">
-                                              {!! $found->attachments->image or 'No Image' !!}
-                                                {{--<img src="{!! URL::asset($found->attachments->icon or 'No Image') !!}g" style="width:304px;height:150px;" alt="image problem, please refresh for preview">--}}
+                                                @if(count($found->attachments) != 0)
+                                                    <img src="{!! URL::asset(\App\PostAttachment::where('post_id',$found->id)->pluck('icon')) !!}" style="width:304px;height:150px;" alt="image problem, please refresh for preview">
+                                                @else
+                                                    <img src="" style="width:304px;height:150px;" alt="No Image to Preview">
+                                                @endif
+
                                             </div>
                                         </div>
                                         <div class="col-md-8">
