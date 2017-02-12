@@ -6,9 +6,8 @@
         <title>{!! 'Lost! - '.$title   !!}</title>
 
         <!--favicon-->
-        <link rel="apple-touch-icon" href="assets/theme/images/apple-touch-icon.png">
-        <link rel="shortcut icon" href="assets/theme/images/favicon.ico" type="image/x-icon">
-
+        {{--{!! URL::asset('assets/theme/images/apple-touch-icon.png') !!}--}}
+        {!! Html::favicon('assets/theme/images/favicon.ico') !!}
         <!-- bootstrap -->
         {!! Html::style('assets/plugins/bootstrap-3.3.2/css/bootstrap.min.css') !!}
 
