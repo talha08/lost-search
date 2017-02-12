@@ -101,7 +101,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials,$remember))
             {
-                return redirect()->intended('/')->with('success','Welcome to InfancyIT');
+                return redirect()->intended('/')->with('success','Welcome to Lost!!');
             } else
             {
                 return redirect()->route('login')

@@ -69,7 +69,7 @@
 
                             <div class="content-footer text-left">
 
-
+                                @if(Auth::user() && $found->user->id == Auth::user()->id)
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="headingOne">
@@ -83,7 +83,7 @@
                                             <div class="panel-body">
                                                 <?php $cnt = 1; ?>
                                                 @foreach($found->replies as $reply)
-                                                    <p style="background: greenyellow"><b>Comment- <?php echo $cnt; $cnt++;?></b></p>
+                                                    <p style="background: honeydew"><b>Comment- <?php echo $cnt; $cnt++;?></b></p>
                                                     <p>Name: {!! $reply->name !!}</p>
                                                     <p>Email: {!! $reply->email !!}</p>
                                                     <p>Phone: {!! $reply->phone !!}</p>
@@ -93,8 +93,9 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
+                                @endif
+
                             </div>
 
                         </div>
