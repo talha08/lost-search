@@ -66,6 +66,37 @@
                                 <a class="btn  btn-default" data-toggle="modal" href="#contactAdvertiser"><i class=" icon-mail-2"></i> Send a message </a>
                                 <a class="btn  btn-info"><i class=" icon-phone-1"></i>{!! $found->user->phone !!} </a>
                             </div>
+
+                            <div class="content-footer text-left">
+
+
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                   Replies From User
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <?php $cnt = 1; ?>
+                                                @foreach($found->replies as $reply)
+                                                    <p style="background: greenyellow"><b>Comment- <?php echo $cnt; $cnt++;?></b></p>
+                                                    <p>Name: {!! $reply->name !!}</p>
+                                                    <p>Email: {!! $reply->email !!}</p>
+                                                    <p>Phone: {!! $reply->phone !!}</p>
+                                                    <p>Comment: {!! $reply->description !!}</p>
+                                                     <hr><br>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
