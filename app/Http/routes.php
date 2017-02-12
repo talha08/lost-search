@@ -69,7 +69,8 @@ Route::get('about', array('as' => 'about', 'uses' => 'AboutController@about'));
 ##ATerms and Condition
 Route::get('terms-and-condition', array('as' => 'condition', 'uses' => 'AboutController@condition'));
 
-
+#reply
+Route::post('post/postReply', array('as' => 'postReply', 'uses' => 'PostReplyController@postReply'));
 
 
 

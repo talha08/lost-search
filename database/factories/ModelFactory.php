@@ -52,6 +52,7 @@ $factory->define(App\PostReply::class, function (Faker\Generator $faker) {
         'post_id' => $faker->numberBetween(1,50),
         'name' => $faker->name,
         'email' =>  $faker->email,
+        'phone' =>  $faker->phoneNumber,
         'description' =>  $faker->sentence(50)
     ];
 });
