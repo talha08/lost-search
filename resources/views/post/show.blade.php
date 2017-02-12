@@ -17,12 +17,12 @@
                             <h1 class="pricetag">{!! $found->is_lost !!}</h1>
                             <ul class="bxslider">
                                 @foreach($found->attachments as $file)
-                                {!! Html::image($file->image, 'alt',array( 'width' => 620, 'height' => 413 )) !!}
+                                {!! Html::image($file->image, 'No Image to Preview',array( 'width' => 620, 'height' => 413 )) !!}
                                 @endforeach
                             </ul>
                             <div id="bx-pager">
                                 @foreach($found->attachments as $file)
-                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset($file->icon) !!}" alt="img"/></a>
+                                <a class="thumb-item-link" data-slide-index="0" href="#"><img src="{!! URL::asset($file->icon) !!}" alt="No Image to show"/></a>
                                 @endforeach
                              </div>
                         </div>
