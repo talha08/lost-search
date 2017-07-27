@@ -84,6 +84,9 @@
 
                         @endforeach
 
+
+                        @include('includes.reply')
+
                         <!-- pagination -->
                        <center>
                            <nav class="" >
@@ -104,12 +107,7 @@
 
                         @endif
                     </div><!-- end box listing -->
-
-
                 </div>
-
-
-
 
 
 
@@ -126,7 +124,7 @@
 
 
 
-@include('includes.reply')
+
 
 
 

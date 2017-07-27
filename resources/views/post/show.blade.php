@@ -53,12 +53,12 @@
                                         </ul>
                                     </aside>
                                     <div class="ads-action">
-                                        <ul class="list-border">
-                                            <li><a href="#"> <i class=" fa fa-user"></i> More ads by User </a></li>
-                                            <li><a href="#"> <i class=" fa fa-heart"></i> Save ad </a></li>
-                                            <li><a href="#"> <i class="fa fa-share-alt"></i> Share ad </a></li>
-                                            <li><a href="#reportAdvertiser" data-toggle="modal"> <i class="fa icon-info-circled-alt"></i> Report abuse </a></li>
-                                        </ul>
+                                        {{--<ul class="list-border">--}}
+                                            {{--<li><a href="#"> <i class=" fa fa-user"></i> More ads by User </a></li>--}}
+                                            {{--<li><a href="#"> <i class=" fa fa-heart"></i> Save ad </a></li>--}}
+                                            {{--<li><a href="#"> <i class="fa fa-share-alt"></i> Share ad </a></li>--}}
+                                            {{--<li><a href="#reportAdvertiser" data-toggle="modal"> <i class="fa icon-info-circled-alt"></i> Report abuse </a></li>--}}
+                                        {{--</ul>--}}
                                     </div>
                                 </div>
                             </div>

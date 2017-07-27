@@ -66,7 +66,7 @@ Route::get('post/{id}/show', array('as' => 'post.show', 'uses' => 'PostControlle
 
 ##About
 Route::get('about', array('as' => 'about', 'uses' => 'AboutController@about'));
-##ATerms and Condition
+##Terms and Condition
 Route::get('terms-and-condition', array('as' => 'condition', 'uses' => 'AboutController@condition'));
 
 #reply
