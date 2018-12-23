@@ -21,6 +21,8 @@
 
                             <div class="white-space-10"></div>
                             <p class="text-center"><span class="span-line">OR</span></p>
+
+			    Email: talha@mail.com Password: a
                             @include('includes.alert')
                             <!-- form login -->
                             {!! Form::open(array('route' => 'login', 'method' => 'post')) !!}
