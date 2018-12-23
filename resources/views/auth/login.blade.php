@@ -22,7 +22,7 @@
                             <div class="white-space-10"></div>
                             <p class="text-center"><span class="span-line">OR</span></p>
 
-			    Email: talha@mail.com Password: a
+			    <p class="text-center">Email: <b>talha@mail.com</b> Password: <b>a</b></p>
                             @include('includes.alert')
                             <!-- form login -->
                             {!! Form::open(array('route' => 'login', 'method' => 'post')) !!}
